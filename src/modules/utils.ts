@@ -108,7 +108,7 @@ export const ejectPluginCSS = (iframeId: string, label: string) => {
  * source: https://stackoverflow.com/a/35385518/7662783
  */
 export function htmlToElement(html: string): ChildNode {
-    var template = document.createElement('template');
+    const template = document.createElement('template');
     html = html.trim(); // Never return a text node of whitespace as the result
     template.innerHTML = html;
     return template.content.firstChild as ChildNode;
