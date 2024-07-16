@@ -4,7 +4,7 @@
 }
 .awLi-icon {
     position: relative;
-    top: 2px;
+    top: 1px !important;
     display: inline-block;
     margin-right: 5px;
     width: 16px;
@@ -18,11 +18,44 @@
     top: 0;
     font-size: 0.9em !important;
 }
+.awLi-icon.force-tabler-icons {
+    top: 2px !important;
+}
+
+.sidebar-item-header .page-title > div.text-md.mr-2 {
+    display: none !important;
+}
+.sidebar-item-header .page-title > .awLi-icon {
+    top: -3px !important;
+}
+.sidebar-item-header .page-title > .awLi-icon.force-tabler-icons {
+    top: -2px !important;
+}
+
+.sidebar-item-header .page-ref > .awLi-icon {
+    top: 0px !important;
+}
+.sidebar-item-header .page-ref > .awLi-icon.force-tabler-icons {
+    top: 2px !important;
+}
+
+#left-sidebar .page-title > .awLi-icon.force-tabler-icons {
+    right: -2px;
+}
+
 .title .awLi-icon {
-    top: 0;
+    top: 0px;
     width: 1em;
     height: 1em;
     line-height: inherit;
+}
+.title .awLi-icon[data-is-emoji="false"] {
+    top: -2px !important;
+    right: 4px !important;
+    line-height: initial !important;
+}
+.title .awLi-icon[data-is-emoji="false"].force-tabler-icons {
+    line-height: initial !important;
 }
 .title .awLi-icon[data-is-emoji="true"] {
     line-height: 1.7em;
