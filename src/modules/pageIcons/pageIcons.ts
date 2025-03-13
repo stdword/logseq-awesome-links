@@ -112,7 +112,21 @@ export const setStyleToLinkList = (linkList: HTMLElement[], noDefaultIcon?: bool
 export const processLinkItem = async (linkItem: HTMLElement, noDefaultIcon?: boolean) => {
     const linkText = linkItem.textContent;
     if (linkText && !linkText.startsWith(' ')) {
-        const pageTitle = linkItem.getAttribute('data-ref') || linkItem.childNodes[1]?.textContent?.trim() || linkItem.textContent?.trim() || '';
+        let linkTextItem = linkItem
+        let pageTitle = linkItem.getAttribute('data-ref')
+        while (!pageTitle) {
+            const node =  Array.from(linkTextItem.childNodes).at(-1)!
+            if (node.nodeType === node.TEXT_NODE)
+                pageTitle = node.nodeValue
+            else {
+                linkTextItem = node as HTMLElement
+                pageTitle = linkTextItem.getAttribute('data-ref')
+            }
+        }
+
+        if (!pageTitle)
+            pageTitle = linkTextItem.textContent?.trim() || linkText.trim()
+
         if (pageTitle) {
             const pageProps = await getPropsByPageName(pageTitle);
             if (pageProps) {

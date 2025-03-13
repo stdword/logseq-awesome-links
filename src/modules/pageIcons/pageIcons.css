@@ -3,6 +3,10 @@
 .is-awLi-enabled .page-icon:not(.whiteboard-page .page-icon) {
     display: none !important;
 }
+.is-awLi-enabled .whiteboard-page .page-icon:has(+ .awLi-icon) {
+    display: none !important;
+}
+
 .awLi-icon {
     position: relative;
     top: 1px !important;
